@@ -1,0 +1,86 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@model StudentManagement.ViewModel.StudentMasterViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h4>Student Marks</h4>
+
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"> New Student Marks </button>
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div ="modal-header">
+
+                <button type="button" class="close" data dismiss="close">&times;</button>
+                <h4 class="modal-title">Student Result</h4>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class=" form-group col-md-6">
+                            @Html.LabelFor(expression: model => model.Name)
+                            @Html.TextBoxFor( Model => Model.Name, new{@class = "form-control",@id = "txtName"})
+                        </div>
+                        <div class=" form-group col-md-6">
+                            @Html.LabelFor(expression: model => model.Class)
+                            @Html.TextBoxFor( Model => Model.Class, new{@class = "form-control",@id = "txtClass"})
+                        </div>
+                        <div class=" form-group col-md-6">
+                            @Html.LabelFor(expression: model => model.RollNumber)
+                            @Html.TextBoxFor( Model => Model.RollNumber, new{@class = "form-control",@id = "txtRollNumber"})
+                        </div>
+                        <div class=" form-group col-md-6">
+                            @Html.LabelFor(expression: model => model.SubjectId, Model.ListofSubject)
+                            @Html.DropDownListFor(Model => Model.SubjectId, new{@class = "form-control",@id = "txtSubjectId"})
+                        </div>
+                        <fieldset>
+                            <legend>Student Marks</legend>
+                            <div class="form-group col-md-4">
+                                @Html.LabelFor(model => Model.TotalMarks)
+                                @Html.TextBoxFor(Model => Model.TotalMarks, new{ @class="from-contro", @id="txtTotalMarks",@style ="text-align:right"})
+                            </div>
+                            <div class="form-group col-md-4">
+                                @Html.LabelFor(model => Model.MarksObtained)
+                                @Html.TextBoxFor(Model => Model.MarksObtained, new{ @class="from-contro", @id="txtMarksObtained" , @style ="text-align:right"})
+                            </div>
+                            <div class="form-group col-md-4">
+                                <input type="button" name="addtolist" value="Add to List" class="btn btn-danger"/>
+
+                            </div>
+                            <table class="table table-condensed" style="width:100%" id="tableStudentMarks">
+                                <thed>
+                                    <tr>
+
+                                   <th>
+                                       Subject
+                                   </th>
+                                   <th>
+                                       Total Marks
+                                   </th>
+                                   <th>
+                                       Marks Obtained
+                                   </th>
+                                   <th>
+                                       Percentage
+                                   </th>
+                                    </tr>
+                                </thed>
+
+                            </table>
+
+                        </fieldset>
+
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Save</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>h
+</div>
